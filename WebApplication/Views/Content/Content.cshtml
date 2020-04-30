@@ -1,0 +1,129 @@
+﻿@model List<WebApplication.Models.ContentViewModel>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/css/Style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                
+    <title>Restaurant</title>
+
+</head>
+
+<body>
+    <header id="header">
+
+        <div><img id="header-img" class="logo-info" src="https://www.dropbox.com/s/dxbaeu9mh9fch1m/LogoUlt.png?raw=1"></div>
+        <nav id="nav-bar">
+            <ul class="ul-nav">
+                <li class="nav-li active"><a class="nav-link" href="#home">HOME</a></li>
+                <li class="nav-li"><a class="nav-link" href="#breakfast">BREKFAST</a></li>
+                <li class="nav-li"><a class="nav-link" href="#meal">Meal</a></li>
+            </ul>
+        </nav>
+
+        <section class="head-container section-style">
+            <div class="textbox-info textbox-by">by</div>
+            <div class="textbox-info textbox-autor">Carolina Siuffi</div>
+        </section>
+    </header>
+
+    <main>
+        <section id="home" class="main-container section-style project-list">
+            @foreach (var content in Model)
+            {
+                if (content.Section.Id == 1)
+                {
+
+                    <div class="flip-card">
+                        <img src="@content.Image" alt="" class="image-flip-card">
+                        <div class="box-back">
+                            <p class="p-box">@content.Title</p>
+                        </div>
+                    </div>
+                }
+            }
+        </section>
+        @foreach (var content in Model)
+        {
+            if (content.Section.Id == 2)
+            {
+                <section id=@content.Title class="thefeed_f-container">
+                    <div class="textbox-title thefeed-title">The feed</div>
+                    <figure>
+                        <img src="@content.Image" alt="" class="img-thefeed">
+                        <figcaption class="figcaption-title">@content.Title</figcaption>
+                        <figcaption class="figcaption-description">
+                            @content.Description
+                        </figcaption>
+                    </figure>
+                </section>
+            }
+        }
+        <section id="meal"></section>
+    </main>
+
+    <footer>
+        <section class="contact-us">
+            <H3>GET IN TOUCH</H3>
+
+            <p class="p-contact">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi,
+                doloribus! Odio veniam
+                blanditiis minima non, cum asperiores nam, eius, eligendi unde incidunt eos facilis id
+                quae quam recusandae sapiente. Rem labore quidem dolorem ipsum quis eveniet et dolor hic
+                quos?
+            </p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+                        ipsa temporibus at sapiente obcaecati
+                        ducimus quia ab nam debitis harum!
+                    </p>
+                    <ul>
+                        <li class="li-contact">
+                            <i class='fas fa-map-marker-alt'></i>Park Ave
+                        </li>
+                        <li class="li-contact">
+                            <i class='fa fa-phone phone-size'
+                               style="font-size:28px"></i>888-8888-888
+                        </li>
+                        <li class="li-contact">
+                            <i class='far fa-envelope'></i>tgolo@gmail.com
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="form">
+                    <form action="https//www.freecodecamp.com/email-submit" id="form">
+
+                        <label for="name" class="prueba">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name..">
+
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Your e-mail.." required>
+
+                        <label for="subject">Subject</label>
+                        <textarea id="subject" name="subject" placeholder="Write something.."
+                                  style="height:79px"></textarea>
+
+                        <input id="submit" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </footer>
+</body>
+
+</html>
+
+
